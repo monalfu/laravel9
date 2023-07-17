@@ -1,7 +1,9 @@
 <?php
+// comando consola: php artisan migrate:refresh --seed (borra y vuelve a crear)
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +19,8 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(),
-            'slug' => $this->faker->sentence(),
+            'title' => $title = $this->faker->sentence(),
+            'slug' => Str::slug($title),
             'body' => $this->faker->text(2200),
         ];
     }
