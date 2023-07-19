@@ -5,9 +5,10 @@
 
     @foreach ($posts as $post)
     <p>
-        <strong>{{ $post['id'] }}</strong>
-        <a href="{{ route('post', $post['slug']) }}">
-            {{ $post['title'] }}
+        {{--  cambiar de array a objeto->propiedad --}}
+        <strong>{{ $post->id }}</strong>
+        <a href="{{ route('post', $post->slug) }}">
+            {{ $post->title }}
         </a>
     </p>
     @endforeach

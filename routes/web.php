@@ -21,6 +21,6 @@ Route::controller(PageController::class)->group(function() {
     Route::get('/blog', 'blog')
         ->name('blog');
 
-    Route::get('/blog/{slug}', 'post')
+    Route::get('/blog/{post:slug}', 'post') // necesario cambiar la ruta por el cambio de lógica en el controlador
         ->name('post');
 });

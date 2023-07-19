@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers; //es la ruta de acceso a este controlador, se debe copiar y pegar en el archivo de rutas especificando el controlado
 
-use Illuminate\Http\Request;
+use App\Models\Post;
+use Illuminate\Http\Request; // clase propia de laravel
 
 // separar la lógica del archivo de rutas y así el manejo de peticiones se hace desde un controlador
 class PageController extends Controller
@@ -15,19 +16,13 @@ class PageController extends Controller
     public function blog()
     {
         // consulta a base de datos
-        $posts = [
-            ['id' => 1, 'title' => 'PHP', 'slug' => 'php'],
-            ['id' => 2, 'title' => 'Laravel', 'slug' => 'laravel'],
-        ];
+        $posts = Post::get(); // tráeme todos los post de la BD
 
         return view('blog', ['posts' => $posts]);
     }
 
-    public function post($slug)
+    public function post(Post $post)
     {
-        // consulta a base de datos
-        $post = $slug;
-
         return view('post', ['post' => $post]);
     }
 }

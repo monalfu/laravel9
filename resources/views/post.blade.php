@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <h1>Detalle</h1>
+    <h1>{{ $post->title }}</h1>
 
-    {{ $post }}
+    {{ $post->body }}
 
 @endsection
