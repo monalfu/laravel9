@@ -10,4 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+
+    // Registrar la relación. este post pertenece a un usuario
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

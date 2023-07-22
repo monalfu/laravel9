@@ -19,6 +19,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => 1,
             'title' => $title = $this->faker->sentence(), // guardamos la información en una variable
             'slug' => Str::slug($title), // para convertir el texto para una url amigable
             'body' => $this->faker->text(2200),

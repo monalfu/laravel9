@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+
+            // crear campo sin signos, solo acepta números positivos y sea de tipo entero
+            $table->unsignedBigInteger('user_id');
+            // relación campo foraneao (user_id) que hará referencia al campo id de la tabla users
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('body');
