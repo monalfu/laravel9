@@ -13,6 +13,9 @@
     </p>
     @endforeach
 
+    {{-- MÉTODO ENLACES para que salga el paginador --}}
+    {{ $posts->links() }}
+
 @endsection
 
 
